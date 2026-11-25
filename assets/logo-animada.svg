@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" fill="none">
+  <style>
+    .lamp { transform-origin: 50% 78%; animation: hop 460ms cubic-bezier(.22,.65,.3,1) 3 both; }
+    .ray { opacity: 0; animation: light 300ms ease-out both; }
+    .ray-one { animation-delay: 1460ms; }
+    .ray-two { animation-delay: 1580ms; }
+    .ray-three { animation-delay: 1700ms; }
+    @keyframes hop {
+      0%, 100% { transform: translateY(0) scale(1) rotate(0); }
+      18% { transform: translateY(12px) scale(1.025,.96) rotate(0); }
+      48% { transform: translateY(-62px) scale(.985,1.025) rotate(-3deg); }
+      77% { transform: translateY(5px) scale(1.02,.975) rotate(1deg); }
+    }
+    @keyframes light {
+      0% { opacity: 0; }
+      38% { opacity: 1; }
+      62% { opacity: .25; }
+      100% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lamp { animation: none; }
+      .ray { opacity: 1; animation: none; }
+    }
+  </style>
+  <circle cx="627" cy="627" r="580" fill="#f3e4d3"/>
+  <g class="lamp" stroke="#795239" stroke-width="21" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M451 973C317 735 355 422 609 291"/>
+    <path d="M525 539C503 519 530 443 580 402C614 375 615 347 616 307C617 267 644 235 676 236C706 236 723 254 733 288C747 330 752 342 793 357C840 374 888 406 884 435"/>
+    <path d="M525 539Q705 465 884 435C795 507 617 557 525 539Z"/>
+    <path d="M451 973Q603 785 739 973Z"/>
+    <path class="ray ray-one" d="M662 567L609 621"/>
+    <path class="ray ray-two" d="M709 581L710 649"/>
+    <path class="ray ray-three" d="M762 558L816 600"/>
+  </g>
+</svg>

@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("assets/fonts/dm-serif-display.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/montserrat-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/montserrat-semibold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/montserrat-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f8ead9;
+  --brown: #593019;
+  --border: #653c24;
+  --portrait-border: #cda278;
+  --hover: #eddbc6;
+}
+* { box-sizing: border-box; }
+/* Rolagem discreta, sem trilho ou botões; preserva o acesso em telas baixas. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #926e4d70 transparent;
+}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #926e4d70;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #79553c9c; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+::-webkit-scrollbar-corner { background: transparent; }
+html { min-width: 240px; background: var(--background); }
+body {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: var(--background);
+  color: var(--brown);
+  font-family: "Montserrat", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+/* O arquivo de fundo enviado ocupa toda a tela, com os dois cantos visíveis. */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("assets/plano-de-fundo.png") center / 100% 100% no-repeat;
+}
+.background-corner { display: none; }
+.loader { display: none; }
+.is-loading .loader {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--background);
+  opacity: 1;
+  transition: opacity 160ms ease-out;
+}
+.loader-logo { display: block; width: 120px; height: 120px; }
+.is-loading .loader.is-leaving { opacity: 0; pointer-events: none; }
+.is-loading .sheet { animation: none; }
+.page-ready .sheet { animation: appear 280ms ease-out both; }
+/* A composição para de crescer em 430 px, inclusive em monitores grandes. */
+.page {
+  width: 100%;
+  max-width: 430px;
+  container-type: inline-size;
+}
+.sheet {
+  padding: 7.4cqw 0 6.8cqw;
+  text-align: center;
+  animation: appear 650ms ease-out both;
+}
+.profile { margin: 0; }
+.portrait {
+  display: block;
+  width: 34.2cqw;
+  height: 34.2cqw;
+  margin: 0 auto;
+  border: .48cqw solid var(--portrait-border);
+  border-radius: 50%;
+  object-fit: cover;
+}
+h1 {
+  margin: 1.15cqw 0 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 10cqw;
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -.36cqw;
+}
+.profession {
+  margin: 1.3cqw 0 0;
+  font-size: 4.2cqw;
+  line-height: 1.3;
+  letter-spacing: .03cqw;
+}
+.registration {
+  margin: .8cqw 0 0;
+  font-size: 3.05cqw;
+  line-height: 1.3;
+  letter-spacing: .04cqw;
+}
+.intro {
+  margin: 4.1cqw 0 0;
+  font-size: 3.85cqw;
+  line-height: 1.3;
+  letter-spacing: -.055cqw;
+}
+.links {
+  display: grid;
+  gap: 3.1cqw;
+  width: 76cqw;
+  margin: 6.1cqw auto 0;
+}
+.link {
+  min-height: 14.8cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1cqw;
+  padding: 2cqw 5cqw 2cqw 7.6cqw;
+  border: .27cqw solid var(--border);
+  border-radius: 4.65cqw;
+  color: var(--brown);
+  text-align: left;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+.link-copy { display: grid; gap: .45cqw; min-width: 0; }
+.link-copy strong {
+  font-size: 4cqw;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -.07cqw;
+}
+.link-copy > span {
+  font-size: 2.92cqw;
+  line-height: 1.3;
+  letter-spacing: -.045cqw;
+  white-space: nowrap;
+}
+.link-primary {
+  color: #fff1de;
+  border-color: #593019;
+  background: linear-gradient(115deg, #63391f, #512a17 70%, #623820);
+}
+.arrow {
+  flex: 0 0 4.8cqw;
+  width: 4.8cqw;
+  height: 3.3cqw;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 2.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 220ms ease;
+}
+.link:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 4px var(--background);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link:hover { transform: translateY(-2px); box-shadow: 0 6px 16px #59301912; }
+  .link-secondary:hover { background-color: var(--hover); }
+  .link-primary:hover { box-shadow: 0 6px 18px #59301929; }
+  .link:hover .arrow { transform: translateX(3px); }
+}
+.link:active { transform: scale(.985); }
+.link-secondary:active { background-color: var(--hover); }
+footer {
+  margin-top: 6.8cqw;
+  font-size: 2.7cqw;
+  line-height: 1.5;
+  letter-spacing: -.02cqw;
+}
+.footer-desktop { display: none; }
+.developer-credit {
+  margin: 5px 0 0;
+  font-size: clamp(10px, 2.4cqw, 12px);
+  line-height: 1.5;
+  color: #87654f;
+}
+.developer-credit a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.developer-credit a:hover { text-decoration: underline; }
+.developer-credit a:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* No computador, os botões seguem a versão compacta da referência. */
+@media (min-width: 768px) {
+  body { place-items: center; }
+  /* A mesma imagem forma os cantos sem achatar a folha em telas largas. */
+  body::before { background-size: 300% 300%; }
+  .background-corner {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("assets/plano-de-fundo.png");
+    background-size: 1024px 1536px;
+    background-repeat: no-repeat;
+  }
+  .background-top {
+    top: 0;
+    right: 0;
+    width: min(38vw, 360px);
+    height: 600px;
+    background-position: top right;
+    mask-image: linear-gradient(to right, transparent, #000 16%), linear-gradient(to bottom, #000 87%, transparent);
+    mask-composite: intersect;
+  }
+  .background-bottom {
+    bottom: 0;
+    left: 0;
+    width: min(44vw, 550px);
+    height: 240px;
+    background-position: bottom left;
+    mask-image: linear-gradient(to right, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 20%);
+    mask-composite: intersect;
+  }
+  .page { max-width: 500px; }
+  .sheet { padding: 36px 0; }
+  .portrait { width: 146px; height: 146px; border-width: 2px; }
+  h1 { margin-top: 6px; font-size: 48px; line-height: 1.13; letter-spacing: -1.6px; }
+  .profession { margin-top: 4px; font-size: 22px; }
+  .registration { margin-top: 4px; font-size: 17px; }
+  .intro { margin-top: 18px; font-size: 20px; line-height: 1.3; }
+  .links { width: 375px; margin-top: 34px; gap: 10px; }
+  .link { min-height: 62px; padding: 14px 22px 14px 44px; border-width: 1.5px; border-radius: 20px; }
+  .link-copy strong { font-size: 21px; line-height: 1.2; letter-spacing: -.3px; font-weight: 600; }
+  .link-copy > span { display: none; }
+  .arrow { flex-basis: 24px; width: 24px; height: 18px; stroke-width: 2; }
+  footer { margin-top: 24px; font-size: 17px; line-height: 1.5; }
+  .footer-mobile { display: none; }
+  .footer-desktop { display: inline; }
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

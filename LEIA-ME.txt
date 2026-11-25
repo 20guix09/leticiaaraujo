@@ -1,0 +1,24 @@
+LETÍCIA ARAÚJO — LINKS DO INSTAGRAM
+
+Abra index.html para visualizar a página.
+Mantenha index.html, style.css e a pasta assets juntos.
+
+Para hospedar: envie todo o conteúdo desta pasta ao seu serviço de hospedagem estática. Não precisa instalar dependências nem executar build.
+No Cloudflare Pages (upload direto), envie esta pasta ou um ZIP com index.html na raiz.
+
+No celular, o conjunto fica centralizado horizontalmente e verticalmente, acompanha a largura da tela até 430 pixels e mantém os textos complementares nos botões. Se a tela for mais baixa que o conteúdo, a página permite rolar normalmente.
+No computador, segue a referência compacta: botões de uma linha e Instagram no rodapé, com conteúdo centralizado e largura limitada.
+O plano de fundo enviado está incluído em assets/plano-de-fundo.png e ocupa toda a tela, com a folha e as formas dos cantos visíveis.
+O favicon usa a logo enviada, restaurada em maior resolução, centralizada em um círculo com respiro. Inclui favicon.ico, versões PNG e ícone para iPhone. O arquivo maior está em assets/logo-circular.png.
+Os três botões já estão conectados ao WhatsApp, site e Instagram informados.
+As fontes e a foto estão incluídas e não dependem de serviços externos para carregar.
+
+ABERTURA ANIMADA
+A luminária dá três pulinhos suaves e depois os três raios piscam em sequência. Quando todos estão acesos, aguarda meio segundo e abre a página. A sequência inteira dura cerca de 2,7 segundos, incluindo a saída suave de 160 ms.
+Animação vetorial: assets/logo-animada.svg. Controle da abertura: loader.js. Estilo da tela: style.css.
+Respeita a preferência por movimento reduzido. Sem JavaScript, a página abre diretamente. Inclui liberação automática para evitar uma tela de carregamento presa.
+
+Para alterar links e textos: edite index.html.
+Para alterar as cores, os tamanhos ou os efeitos: edite style.css.
+
+Fontes: DM Serif Display e Montserrat, distribuídas sob SIL Open Font License. Licenças na pasta assets/fonts.
